@@ -91,7 +91,7 @@ class Editor {
                 // 处理富文本
                 if (richTextSubtitleElement) {
                     const { textOptions, backgroundOptions } = richTextSubtitleElement;
-                    const { elementList, text } = textOptions;
+                    const { text } = textOptions;
                     const { width, height, x, y, zIndex, fill } = backgroundOptions;
                     const box = new Box({
                         width,
