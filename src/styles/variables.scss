@@ -1,0 +1,16 @@
+$primary-color: #42b983;
+$secondary-color: #35495e;
+$font-size-lg: 1.5rem;
+$font-size-md: 1rem;
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

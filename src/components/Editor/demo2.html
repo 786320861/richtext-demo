@@ -1,0 +1,67 @@
+<style>
+    p {
+        margin: 0;
+    }
+
+    sub,
+    sup {
+        font-size: 63%;
+    }
+
+    .ql-ui {
+        position: absolute
+    }
+
+    ol,
+    ul {
+        counter-reset: list-0;
+        padding-left: 1.5em;
+        margin: 0
+    }
+
+    ol>li,
+    ul>li {
+        counter-increment: list-0;
+        list-style-type: none;
+        position: relative;
+        padding-left: 0;
+        margin: 0
+    }
+
+    ol>li::before {
+        content: counter(list-0, decimal) '. ';
+        position: absolute;
+        left: -1.5em;
+        width: 1.2em;
+        text-align: right
+    }
+
+    ul>li::before {
+        content: '•';
+        position: absolute;
+        left: -1.5em;
+        width: 1.2em;
+        text-align: right
+    }
+
+    li[data-list] {
+        counter-set: list-1 list-2 list-3 list-4 list-5 list-6 list-7 list-8 list-9
+    }
+
+    .ql-align-center {
+        text-align: center
+    }
+
+    .ql-align-right {
+        text-align: right
+    }
+
+    .ql-align-left {
+        text-align: left
+    }
+
+    .ql-align-justify {
+        text-align: justify
+    }
+</style>
+<div style="font-size: 80px;">这是一行文本</div>
