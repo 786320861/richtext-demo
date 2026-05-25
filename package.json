@@ -11,7 +11,7 @@
     "type-check": "vue-tsc --build"
   },
   "dependencies": {
-    "@chenyomi/leafer-htmltext-edit": "^2.4.5",
+    "@chenyomi/leafer-htmltext-edit": "^2.5.0",
     "@leafer-in/animate": "^2.1.0",
     "@leafer-ui/core": "^2.1.0",
     "@leafer-ui/draw": "^2.1.0",

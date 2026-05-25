@@ -1,7 +1,7 @@
 /**
  * 基本的文本编辑支持，下一步需要确认如何实现动效，并结合起来
  */
-import { App, Image, Text, Resource, HTMLText, Box } from 'leafer-editor';
+import { App, Image, Text, Resource, HTMLText, Box, LeaferEvent } from 'leafer-editor';
 import { TEST_DATA, TEST_CANVAS_HEIGHT, SCALE } from './data';
 import { HtmlText, htmlTextManage, setLicense, setHTMLText } from '@chenyomi/leafer-htmltext-edit';
 import { typewriter } from './typewriter';
@@ -33,12 +33,32 @@ class Editor {
 
         const app = new App({
             view: document.getElementById('editor')!,
-            editor: {},
-            tree: {},
+            editor: {
+                circle: {},
+                circleDirection: "top",
+                middlePoint: {},
+                buttonsDirection: "left",
+                buttonsFixed: true,
+                stroke: "#FF822C",
+                strokeWidth: 2,
+                multipleSelect: false,
+                resizeLine: [{ pointType: 'move' }, { pointType: 'move' }], // 限制只能左右拉伸
+                hideOnMove: true,
+            }, // 会自动创建 editor实例、tree层、sky层
+            //缩放
+            zoom: { min: 0.25, max: 2 },
+            move: {
+                scroll: "limit",
+            }
         });
 
         this.app = app;
         htmlTextManage.init(app);
+
+        app.on(LeaferEvent.READY, async () => {
+            const treeZoomData = this.app.tree.zoom(1);
+            console.log('treeZoomData', treeZoomData);
+        });
 
         if (backgroundImage) {
             const bgImage = new Image({
@@ -52,7 +72,7 @@ class Editor {
 
         if (source?.length) {
             source.forEach((item) => {
-                const { backgroundTextElement, richTextSubtitleElement, titleElement, imageElement } = item;
+                const { backgroundTextElement, richTextSubtitleElement, titleElement, subtitleElement, imageElement } = item;
                 // 处理花字
                 if (backgroundTextElement) {
                     const bgText = new Text({ ...backgroundTextElement.textOptions });
@@ -60,17 +80,49 @@ class Editor {
                     app.tree.add(bgText);
                     bgText.zIndex = backgroundTextElement.backgroundOptions.zIndex;
                     bgText.move(backgroundTextElement.backgroundOptions.x * SCALE, backgroundTextElement.backgroundOptions.y * SCALE, backgroundTextElement.backgroundOptions.y * SCALE);
-                    bgText.scale = SCALE;
+                    // bgText.scale = SCALE;
                 }
 
                 // 处理标题字
                 if (titleElement) {
-                    const titleText = new Text({ ...titleElement.textOptions });
+                    const {
+                        text,
+                        textAlign,
+                        fill,
+                        stroke,
+                        strokeWidth,
+                        lineHeight,
+                        ...rest
+                    } = titleElement.textOptions;
+                    const titleText = new HtmlText({
+                        content: text,
+                        color: fill,
+                        align: textAlign,
+                        italic: true,
+                        textStroke: `${strokeWidth}px ${stroke}`,
+                        ...rest
+                    });
 
                     app.tree.add(titleText);
                     titleText.zIndex = titleElement.backgroundOptions.zIndex;
                     titleText.move(titleElement.backgroundOptions.x * SCALE, titleElement.backgroundOptions.y * SCALE, titleElement.backgroundOptions.y * SCALE);
-                    titleText.scale = SCALE;
+                    // titleText.scale = SCALE;
+                }
+
+                if (subtitleElement) {
+                    const {
+                        text,
+                        ...rest
+                    } = subtitleElement.textOptions;
+                    const subtitleText = new HtmlText({
+                        content: text,
+                        ...rest
+                    });
+
+                    app.tree.add(subtitleText);
+                    subtitleText.zIndex = subtitleElement.backgroundOptions.zIndex;
+                    subtitleText.move(subtitleElement.backgroundOptions.x * SCALE, subtitleElement.backgroundOptions.y * SCALE, subtitleElement.backgroundOptions.y * SCALE);
+                    // subtitleText.scale = SCALE;
                 }
 
                 // 处理图片
@@ -85,7 +137,7 @@ class Editor {
                     app.tree.add(img);
                     img.zIndex = options.zIndex;
                     img.move(x * SCALE, y * SCALE);
-                    img.scale = SCALE;
+                    // img.scale = SCALE;
                 }
 
                 // 处理富文本
@@ -111,7 +163,7 @@ class Editor {
                     app.tree.add(box);
                     box.zIndex = zIndex;
                     box.move(x * SCALE, y * SCALE);
-                    box.scale = SCALE;
+                    // box.scale = SCALE;
                 }
             });
         }
@@ -130,7 +182,7 @@ class Editor {
 
         app.tree.add(newText);
         newText.move(300 * SCALE, 600 * SCALE);
-        newText.scale = SCALE;
+        // newText.scale = SCALE;
     }
 
     exportJson() {

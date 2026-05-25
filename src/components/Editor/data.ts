@@ -157,6 +157,7 @@ export type SourceItem = {
     richTextSubtitleElement?: RichTextSubtitleElement
     titleElement?: TitleElement
     imageElement?: ImageElement
+    subtitleElement?: RichTextSubtitleElement
     imgFrom?: string
 }
 
@@ -174,177 +175,143 @@ export interface TestData {
 }
 
 export const TEST_DATA: TestData = {
-    source: [
+    "source": [
         {
-            id: 'source-EWDite',
-            attribute: {
-                end: 6421667,
-                start: 0,
-                duration: 6421667
+            "id": "fragment-0-source-0-sub",
+            "attribute": {
+                "end": 4534000,
+                "start": 0,
+                "duration": 4534000
             },
-            backgroundTextElement: {
-                textOptions: {
-                    fill: '#ffffff',
-                    text: '花字',
-                    width: 158,
-                    height: 129,
-                    stroke: '#FF822C',
-                    padding: [10, 10, 10, 10],
-                    editable: true,
-                    fontSize: 60,
-                    draggable: true,
-                    fontFamily: 'SourceHanSansCN-Regular',
-                    fontWeight: 'normal',
-                    lineHeight: {
-                        type: 'px',
-                        value: 90
+            "subtitleElement": {
+                "dubOptions": {
+                    "type": "BV011_streaming",
+                    "speak": "婺剧演员楼胜，从天蟾舞台的“小哥哥”成长为梅花奖榜首的“老大哥”从地方戏新人到满场喝彩，他始终记得上海专家那句“给地方戏一双起飞的翅膀”",
+                    "speed": 1,
+                    "volume": 1,
+                    "audioUrl": "",
+                    "audioEnable": false
+                },
+                "textOptions": {
+                    "fill": "rgba(255,255,255,1)",
+                    "text": "婺剧演员楼胜，从天蟾舞台的“小哥哥”成长为梅花奖榜首的“老大哥”从地方戏新人到满场喝彩，他始终记得上海专家那句“给地方戏一双起飞的翅膀”",
+                    "width": 862,
+                    "stroke": "#000000",
+                    "padding": [
+                        16,
+                        16,
+                        16,
+                        16
+                    ],
+                    "editable": true,
+                    "fontSize": "50",
+                    "draggable": true,
+                    "textAlign": "left",
+                    "fontFamily": "SourceHanSansCN-Medium",
+                    "fontWeight": "bold",
+                    "lineHeight": {
+                        "type": "px",
+                        "value": 80
                     },
-                    strokeWidth: 10,
-                    letterSpacing: {
-                        type: 'px',
-                        value: 1
+                    "strokeWidth": 0,
+                    "letterSpacing": {
+                        "type": "px",
+                        "value": 3
                     }
                 },
-                animationOptions: {},
-                backgroundOptions: {
-                    x: 50,
-                    y: 500,
-                    fill: 'rgba(255,255,255,0)',
-                    width: 158,
-                    height: 129,
-                    zIndex: 9
+                "animationOptions": {
+                    "configs": {
+                        "key": "default",
+                        "duration": 1
+                    },
+                    "animation": {}
+                },
+                "backgroundOptions": {
+                    "x": 111,
+                    "y": 1280,
+                    "fill": "rgba(0,0,0,0.6)",
+                    "width": 862,
+                    "zIndex": 3
                 }
             }
         },
         {
-            id: 'fragment-0-source-0-sub',
-            attribute: {
-                end: 6416667,
-                start: 0,
-                duration: 6416667
+            "id": "fragment-0-source-1-title",
+            "attribute": {
+                "end": 4539000,
+                "start": 0,
+                "duration": 4539000
             },
-            fragmentDuration: 6421667,
-            richTextSubtitleElement: {
-                dubOptions: {
-                    type: 'zh_female_zhixingnvsheng_mars_bigtts',
-                    speak: '<span >77岁的张亚凤拉着拉杆箱步行两站路去排练。</span><span >她曾</span><span >是"社恐"，如今在手风琴和合唱中找</span><span >到了快乐。她说："拉手风琴是我小时</span><span >候的梦想，合唱是我生命中最甜蜜的时光。"</span>',
-                    speed: 1,
-                    volume: 1,
-                    audioUrl: '',
-                    audioEnable: false
-                },
-                textOptions: {
-                    url: 'https://fwimage-oss.cnfanews.com/projects/videoclip/v/4693/2026/0fbc71d2238c461e8008a49ab228010e.png',
-                    text: '<span  style="font-family: SourceHanSansCN-Medium; color: rgb(255, 255, 255); font-weight: 600; font-size: 50px; margin: 6px 0px; letter-spacing: 1.2px;">77岁的张亚凤拉着拉杆箱步行两站路去排练。</span><span  style="font-family: SourceHanSansCN-Medium; color: rgb(255, 255, 255); font-size: 50px; margin: 6px 0px; letter-spacing: 1.2px;">她曾</span><span  style="font-family: SourceHanSansCN-Medium; color: rgb(255, 255, 255); font-weight: 600; font-size: 50px; margin: 6px 0px; letter-spacing: 1.2px;">是"社恐"，如今在手风琴和合唱中找</span><span  style="font-family: SourceHanSansCN-Medium; color: rgb(208, 106, 226); font-weight: 600; font-style: italic; font-size: 50px; margin: 6px 0px; letter-spacing: 1.2px;">到了快乐。她说："拉手风琴是我小时</span><span  style="font-family: SourceHanSansCN-Medium; color: rgb(255, 255, 255); font-weight: 600; font-size: 50px; margin: 6px 0px; letter-spacing: 1.2px;">候的梦想，合唱是我生命中最甜蜜的时光。"</span>',
-                    width: 835,
-                    height: 513,
-                    padding: [16, 16, 16, 16],
-                    originalZoom: 40
-                },
-                animationOptions: {
-                    configs: {
-                        key: 'flyoutin',
-                        duration: 1
+            "titleElement": {
+                "textOptions": {
+                    "fill": "rgba(253,225,5,1)",
+                    "text": "海上有客来",
+                    "width": 884,
+                    "stroke": "rgba(0,0,0,1)",
+                    "padding": [
+                        10,
+                        10
+                    ],
+                    "editable": true,
+                    "fontSize": "80",
+                    "draggable": true,
+                    "textAlign": "center",
+                    "fontFamily": "SourceHanSansCN-Bold",
+                    "fontWeight": "normal",
+                    "lineHeight": {
+                        "type": "px",
+                        "value": 90
                     },
-                    animation: {
-                        easing: 'ease-out',
-                        duration: 1,
-                        keyframes: [
+                    "strokeWidth": 6,
+                    "letterSpacing": {
+                        "type": "px",
+                        "value": 1
+                    }
+                },
+                "animationOptions": {},
+                "backgroundOptions": {
+                    "x": 108,
+                    "y": 246,
+                    "fill": "rgba(0,0,0,0)",
+                    "width": 884,
+                    "zIndex": 4
+                }
+            }
+        },
+        {
+            "id": "fragment-0-source-2-img",
+            "imgFrom": "Article",
+            "attribute": {
+                "end": 4539000,
+                "start": 0,
+                "duration": 4539000
+            },
+            "imageElement": {
+                "options": {
+                    "x": 3,
+                    "y": 731.878084179971,
+                    "url": "https://wxsywttest.shobserver.com/files/thumbnails/2025/05/22/l_6388353176935492677244013.png",
+                    "width": 1073,
+                    "height": 604.243831640058,
+                    "zIndex": -1,
+                    "imgFrom": "local",
+                    "editable": true,
+                    "draggable": true
+                },
+                "animationOptions": {
+                    "configs": {
+                        "key": "no_animation",
+                        "duration": 2,
+                        "direction": ""
+                    },
+                    "animation": {
+                        "duration": 0.1,
+                        "keyframes": [
                             {
-                                x: 539.5,
-                                opacity: 0
+                                "opacity": 1
                             },
                             {
-                                x: 122,
-                                opacity: 1
-                            }
-                        ]
-                    }
-                },
-                backgroundOptions: {
-                    x: 122,
-                    y: 1251,
-                    fill: 'rgba(0,0,0,0.60)',
-                    width: 835,
-                    height: 513,
-                    zIndex: 3
-                }
-            }
-        },
-        {
-            id: 'fragment-0-source-1-title',
-            attribute: {
-                end: 6421667,
-                start: 0,
-                duration: 6421667
-            },
-            titleElement: {
-                textOptions: {
-                    fill: 'rgba(253,225,5,1)',
-                    text: '文化养老 | 合唱是老舅妈们的快乐处方',
-                    width: 884,
-                    stroke: 'rgba(0,0,0,1)',
-                    padding: [10, 10],
-                    editable: true,
-                    fontSize: '80',
-                    draggable: true,
-                    textAlign: 'center',
-                    fontFamily: 'SourceHanSansCN-Bold',
-                    fontWeight: 'normal',
-                    lineHeight: {
-                        type: 'px',
-                        value: 90
-                    },
-                    strokeWidth: 6,
-                    letterSpacing: {
-                        type: 'px',
-                        value: 1
-                    }
-                },
-                animationOptions: {},
-                backgroundOptions: {
-                    x: 108,
-                    y: 237,
-                    fill: 'rgba(0,0,0,0)',
-                    width: 884,
-                    zIndex: 2
-                }
-            }
-        },
-        {
-            id: 'fragment-0-source-2-img',
-            imgFrom: 'Article',
-            attribute: {
-                end: 6421667,
-                start: 0,
-                duration: 6421667
-            },
-            imageElement: {
-                options: {
-                    x: 9.640573318632846,
-                    y: 467,
-                    url: 'https://wxsywttest.shobserver.com/files/thumbnails/2025/05/13/l_6388275623207876032372761.jpg?v=cLsQeU',
-                    width: 1064.7188533627343,
-                    height: 1073,
-                    zIndex: -1,
-                    imgFrom: 'local',
-                    editable: true,
-                    draggable: true
-                },
-                animationOptions: {
-                    configs: {
-                        key: 'no_animation',
-                        duration: 5,
-                        direction: ''
-                    },
-                    animation: {
-                        duration: 0.1,
-                        keyframes: [
-                            {
-                                opacity: 1
-                            },
-                            {
-                                opacity: 1
+                                "opacity": 1
                             }
                         ]
                     }
